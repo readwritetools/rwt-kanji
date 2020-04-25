@@ -35,9 +35,9 @@ Sometimes a reader is in <q>scan</q> mode, rather than comprehension mode.
 They are sniffing for the scent of things. When that's the case, this component
 can be used to present a complex idea as a simple visualization.
 
-When a user's interest is picqued, more information can be revealed to the
-reader by hovering the mouse over the card's prominently displayed image. The
-extra information fades in, revealing itself on top of the image.
+When a user's interest is piqued, more information can be revealed to the reader
+by hovering the mouse over the card's prominently displayed image. The extra
+information fades in, revealing itself on top of the image.
 
 This component takes its name from its original use case: describing the
 inspiration behind the logos used in the desktop apps of Read Write Tools.
@@ -181,6 +181,6 @@ The <span>rwt-kanji</span> web component is licensed under the MIT License.
 <table>
 	<tr><td>Source code</td> 			<td><a href='https://github.com/readwritetools/rwt-kanji'>github</a></td></tr>
 	<tr><td>Package installation</td> <td><a href='https://www.npmjs.com/package/rwt-kanji'>NPM</a></td></tr>
-	<tr><td>Documentation</td> 		<td><a href='https://hub.readwritetools.com/components/favorites.blue'>Read Write Hub</a></td></tr>
+	<tr><td>Documentation</td> 		<td><a href='https://hub.readwritetools.com/components/kanji.blue'>Read Write Hub</a></td></tr>
 </table>
 
