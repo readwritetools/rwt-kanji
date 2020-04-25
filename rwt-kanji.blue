@@ -1,0 +1,31 @@
+!blue 2.0
+//=============================================================================
+//
+//  File:         /node_modules/rwt-kanji/rwt-kanji.blue
+//  Language:     Blue-phrase
+//  Copyright:    Read Write Tools © 2020
+//  License:      MIT
+//  Initial date: Apr 23, 2020
+//  Contents:     Designer card with horizontal title, vertically transformed subtitle, blockquoted text, and image with mouse-over explanation
+//
+//=============================================================================
+
+!option --fragment
+
+div #kanji-card {
+	div.triangle
+	h3 <<slot *name=main-title>> 
+	aside {
+		h4 <<slot *name=side-title>>		
+	}
+	section {
+		blockquote {
+			p #slogan <<q<<slot *name=slogan>>>>
+		}
+		div#image-block {
+			p #image-text <<slot *name=image-text>>
+			slot *name=image
+		}
+	}
+}
+		

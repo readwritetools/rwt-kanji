@@ -1,0 +1,196 @@
+/*=============================================================================
+
+  File:         /node_modules/rwt-kanji/rwt-kanji.css
+  Language:     CSS
+  Copyright:    Read Write Tools © 2020
+  License:      MIT
+  Initial date: Apr 23, 2020
+  Contents:     Designer card with horizontal title, vertically transformed subtitle, blockquoted text, and image with mouse-over explanation
+
+=============================================================================*/
+
+:host {
+	--pure-black: #000;
+	--nav-black: #111;
+	--light-black: #171717;
+	--medium-black: #222;
+	--black: #333;
+	--dark-gray: #555;
+	--gray: #777;
+	--white: #ccc;
+	--pure-white: #fff;
+	--js-blue: #76afe8;
+	--title-blue: #42affa;
+	--yellow: #ffffa4;
+	--red: #ff3d3d;
+	
+	/* custom element decorations */
+	--color: var(--white);
+	--accent-color1: var(--pure-white);
+	--background: var(--black);
+	--accent-background1: var(--pure-black);
+	--accent-background2: var(--nav-black);
+	--accent-background3: var(--medium-black);
+	--accent-background4: var(--gray);
+
+	/* custom element variables */	
+	--width: 22rem;
+	--height: 22rem;
+	--sidebar-width: 2rem;
+	--title-height: 2rem;
+
+	/* calculated sizing */
+	--container-width: calc(var(--width) - var(--sidebar-width) - 2px);
+	--container-height: calc(var(--height) - var(--title-height) - 2px);
+	
+	font-size: 20pt;
+}
+
+/* ---------- kanji-card ----------- */
+#kanji-card {
+	position: relative;
+	width: var(--width);
+	height: var(--height);
+	margin: 1rem;
+    font-family: 'Source Serif Pro', serif;
+	font-size: 1rem;
+    line-height: 1.6rem;
+	color: var(--color);
+	background-color: var(--background);
+	border: 1px solid var(--accent-background1);
+	box-shadow: 0px 5px 8px var(--accent-background1);
+}
+
+#kanji-card * {
+	box-sizing: border-box;
+} 
+
+.triangle {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 0px;
+	height: 0px;
+	border-top: var(--title-height) solid var(--accent-background3);
+   	border-right: var(--sidebar-width) solid var(--accent-background1);
+}
+
+h3 {
+	position: absolute;
+	top: 0;
+	left: calc(var(--sidebar-width) - 1px);
+	height: var(--title-height);
+	width: calc(var(--container-width) + 3px);
+	color: var(--accent-color1);
+	margin: 0;
+	padding: 0.3rem 0 0 0;
+	font-family: 'Source Sans Pro', sans-serif;
+	font-weight: 600;
+	font-size: 1.2rem;
+	font-style: initial;
+	white-space: nowrap;
+	overflow: hidden;
+	letter-spacing: 2px;
+	line-height: 1;
+	text-align: center;
+	background-color: var(--accent-background2);
+	border-left: 1px solid var(--accent-background4);
+	border-bottom: 1px solid var(--accent-background4);
+}
+
+aside {
+	position: absolute;
+	top: calc(var(--title-height) - 1px);
+	left: 0;
+	height: calc(var(--container-height) + 3px);
+	width: var(--sidebar-width);
+	margin: 0;
+	background-color: var(--accent-background2);
+	border-top: 1px solid var(--accent-background4);
+	border-right: 1px solid var(--accent-background4);
+}
+
+h4 {
+	display: inline;
+	position: absolute;
+	top: var(--container-height);
+	left: 0;
+	height: var(--sidebar-width);
+	width: var(--container-height);
+	margin: 0;
+	padding-top: 0.4rem;
+	color: var(--accent-color1);
+	font-family: 'Source Sans Pro', sans-serif;
+	font-weight: 600;
+	font-size: 1.2rem;
+	font-style: initial;
+	white-space: nowrap;
+	overflow: hidden;
+	letter-spacing: 2px;
+	line-height: 1;
+	text-align: center;
+	text-transform: uppercase;
+	transform-origin: top left;
+	transform-box: border-box;
+	transform: rotate(-90deg); 
+}
+
+section {
+	position: absolute;
+	top: var(--title-height);
+	left: var(--sidebar-width);
+	width: var(--container-width);
+	height: var(--container-height);
+	overflow-y: hidden;
+	overflow-x: hidden;
+}
+
+blockquote {
+	padding: 0.5rem;
+}
+
+p#slogan {
+	text-align: left;
+	padding: 0;
+	text-indent: -0.4em;
+}
+
+q {
+	quotes: '“' '”'
+}
+
+div#image-block {
+	position: relative;
+	top: 0;
+	left: 0;
+	width: var(--container-width);
+	cursor: help;
+}
+
+::slotted(img) {
+	display: block;
+	margin: auto;
+	width: 10rem;
+	height: 10rem;
+}
+
+#image-text {
+	font-size: 0.9rem;
+	position: absolute;
+	top: 0;
+	left: 0;
+	padding: 1rem 4rem;
+	text-align: center;
+	opacity: 0;
+}
+
+#image-text.show {
+	opacity: 1;
+	transition: opacity 1.5s;
+}
+
+#image-text.hide {
+	opacity: 0;
+	transition: opacity 1.5s;
+}
+	
