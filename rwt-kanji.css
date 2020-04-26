@@ -33,17 +33,16 @@
 	--accent-background3: var(--medium-black);
 	--accent-background4: var(--gray);
 
-	/* custom element variables */	
-	--width: 22rem;
-	--height: 22rem;
-	--sidebar-width: 2rem;
-	--title-height: 2rem;
+	/* custom element variables */
+	--font-basis: 1.0;	
+	--width: calc(22rem * var(--font-basis));
+	--height: calc(22rem * var(--font-basis));
+	--sidebar-width: calc(2rem * var(--font-basis));
+	--title-height: calc(2rem * var(--font-basis));
 
 	/* calculated sizing */
 	--container-width: calc(var(--width) - var(--sidebar-width) - 2px);
 	--container-height: calc(var(--height) - var(--title-height) - 2px);
-	
-	font-size: 20pt;
 }
 
 /* ---------- kanji-card ----------- */
@@ -51,10 +50,10 @@
 	position: relative;
 	width: var(--width);
 	height: var(--height);
-	margin: 1rem;
+	margin: 0;
     font-family: 'Source Serif Pro', serif;
-	font-size: 1rem;
-    line-height: 1.6rem;
+	font-size: calc(1rem * var(--font-basis));
+    line-height: 1.6;
 	color: var(--color);
 	background-color: var(--background);
 	border: 1px solid var(--accent-background1);
@@ -83,10 +82,10 @@ h3 {
 	width: calc(var(--container-width) + 3px);
 	color: var(--accent-color1);
 	margin: 0;
-	padding: 0.3rem 0 0 0;
+	padding: calc(0.3rem * var(--font-basis)) 0 0 0;
 	font-family: 'Source Sans Pro', sans-serif;
 	font-weight: 600;
-	font-size: 1.2rem;
+	font-size: calc(1.2rem * var(--font-basis));
 	font-style: initial;
 	white-space: nowrap;
 	overflow: hidden;
@@ -118,11 +117,11 @@ h4 {
 	height: var(--sidebar-width);
 	width: var(--container-height);
 	margin: 0;
-	padding-top: 0.4rem;
+	padding-top: calc(0.4rem * var(--font-basis));
 	color: var(--accent-color1);
 	font-family: 'Source Sans Pro', sans-serif;
 	font-weight: 600;
-	font-size: 1.2rem;
+	font-size: calc(1.2rem * var(--font-basis));
 	font-style: initial;
 	white-space: nowrap;
 	overflow: hidden;
@@ -131,7 +130,6 @@ h4 {
 	text-align: center;
 	text-transform: uppercase;
 	transform-origin: top left;
-	transform-box: border-box;
 	transform: rotate(-90deg); 
 }
 
@@ -146,7 +144,7 @@ section {
 }
 
 blockquote {
-	padding: 0.5rem;
+	margin: calc(2rem * var(--font-basis)) calc(2rem * var(--font-basis));
 }
 
 p#slogan {
@@ -170,16 +168,16 @@ div#image-block {
 ::slotted(img) {
 	display: block;
 	margin: auto;
-	width: 10rem;
-	height: 10rem;
+	width: calc(10rem * var(--font-basis));
+	height: calc(10rem * var(--font-basis));
 }
 
 #image-text {
-	font-size: 0.9rem;
+	font-size: calc(0.9rem * var(--font-basis));
 	position: absolute;
 	top: 0;
 	left: 0;
-	padding: 1rem 4rem;
+	padding: calc(1rem * var(--font-basis)) calc(4rem * var(--font-basis));
 	text-align: center;
 	opacity: 0;
 }
