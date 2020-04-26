@@ -120,7 +120,7 @@ h4 {
 	padding-top: calc(0.4rem * var(--font-basis));
 	color: var(--accent-color1);
 	font-family: 'Source Sans Pro', sans-serif;
-	font-weight: 600;
+	font-weight: 300;
 	font-size: calc(1.2rem * var(--font-basis));
 	font-style: initial;
 	white-space: nowrap;
@@ -144,8 +144,8 @@ section {
 }
 
 blockquote {
-	margin: calc(2rem * var(--font-basis)) calc(2rem * var(--font-basis));
-}
+	margin: calc(2rem * var(--font-basis)) 0 0 calc(3rem * var(--font-basis));
+	
 
 p#slogan {
 	text-align: left;
