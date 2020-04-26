@@ -145,7 +145,7 @@ section {
 
 blockquote {
 	margin: calc(2rem * var(--font-basis)) 0 0 calc(3rem * var(--font-basis));
-	
+}	
 
 p#slogan {
 	text-align: left;
