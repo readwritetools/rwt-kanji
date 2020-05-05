@@ -12,8 +12,8 @@
 export default class RwtKanji extends HTMLElement {
 	
 	static elementInstance = 1;		// The elementInstance is used to distinguish between multiple instances of this custom element
-	static htmlTemplate = null;		// retreived from the server once, and used by all instances
-	static cssText = null;			// retreived from the server once, and used by all instances
+	static htmlTemplate = null;		// retrieved from the server once, and used by all instances
+	static cssText = null;			// retrieved from the server once, and used by all instances
 	
 	constructor() {
 		super();
