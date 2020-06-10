@@ -45,8 +45,8 @@ inspiration behind the logos used in the desktop apps of Read Write Tools.
 #### Prerequisites
 
 The <span>rwt-kanji</span> web component works in any browser that supports
-modern W3C standards. Templates are written using  notation, which can be
-compiled into HTML using the free <a href='https://hub.readwritetools.com/desktop/rwview.blue'>Read Write View</a>
+modern W3C standards. Templates are written using <span>BLUE</span><span>
+PHRASE</span> notation, which can be compiled into HTML using the free <a href='https://hub.readwritetools.com/desktop/rwview.blue'>Read Write View</a>
 desktop app. It has no other prerequisites. Distribution and installation are
 done with either NPM or via Github.
 
@@ -135,12 +135,15 @@ Here's an example:
 The designer card is square by default. Its size may be overridden using CSS by
 defining new values for `--width` and `--height`.
 
+Adjust the `--font-basis` to shrink or grow the entire card.
+
 ```css
 rwt-kanji {
-    --width: 22rem;
-    --height: 22rem;
-    --sidebar-width: 2rem;
-    --title-height: 2rem;
+    --font-basis: 1.0;
+    --width: calc(22rem * var(--font-basis));
+    --height: calc(22rem * var(--font-basis));
+    --sidebar-width: calc(2rem * var(--font-basis));
+    --title-height: calc(2rem * var(--font-basis));
 }
 ```
 
