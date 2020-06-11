@@ -72,8 +72,9 @@ export default class RwtKanji extends HTMLElement {
 	// and resolve the promise with a DocumentFragment.
 	getHtmlFragment() {
 		return new Promise(async (resolve, reject) => {
+			var htmlTemplateReady = `RwtKanji-html-template-ready`;
 			
-			document.addEventListener('html-template-ready', () => {
+			document.addEventListener(htmlTemplateReady, () => {
 				var template = document.createElement('template');
 				template.innerHTML = RwtKanji.htmlText;
 				resolve(template.content);
@@ -86,10 +87,10 @@ export default class RwtKanji extends HTMLElement {
 					return;
 				}
 				RwtKanji.htmlText = await response.text();
-				document.dispatchEvent(new Event('html-template-ready'));
+				document.dispatchEvent(new Event(htmlTemplateReady));
 			}
 			else if (RwtKanji.htmlText != null) {
-				document.dispatchEvent(new Event('html-template-ready'));
+				document.dispatchEvent(new Event(htmlTemplateReady));
 			}
 		});
 	}
@@ -99,8 +100,9 @@ export default class RwtKanji extends HTMLElement {
 	// and resolve the promise with that element.
 	getCssStyleElement() {
 		return new Promise(async (resolve, reject) => {
+			var cssTextReady = `RwtKanji-css-text-ready`;
 
-			document.addEventListener('css-text-ready', () => {
+			document.addEventListener(cssTextReady, () => {
 				var styleElement = document.createElement('style');
 				styleElement.innerHTML = RwtKanji.cssText;
 				resolve(styleElement);
@@ -113,14 +115,14 @@ export default class RwtKanji extends HTMLElement {
 					return;
 				}
 				RwtKanji.cssText = await response.text();
-				document.dispatchEvent(new Event('css-text-ready'));
+				document.dispatchEvent(new Event(cssTextReady));
 			}
 			else if (RwtKanji.cssText != null) {
-				document.dispatchEvent(new Event('css-text-ready'));
+				document.dispatchEvent(new Event(cssTextReady));
 			}
 		});
 	}
-		
+	
 	//^ Identify this component's children
 	identifyChildren() {
 		this.mainTitle = this.shadowRoot.getElementById('main-title');
