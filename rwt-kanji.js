@@ -10,17 +10,26 @@
 //
 //=============================================================================
 
+const Static = {
+	componentName:    'rwt-kanji',
+	elementInstance:  1,
+	htmlURL:          '/node_modules/rwt-kanji/rwt-kanji.blue',
+	cssURL:           '/node_modules/rwt-kanji/rwt-kanji.css',
+	htmlText:         null,
+	cssText:          null
+};
+
+Object.seal(Static);
+
 export default class RwtKanji extends HTMLElement {
-	
-	static elementInstance = 1;
-	static htmlURL  = '/node_modules/rwt-kanji/rwt-kanji.blue';
-	static cssURL   = '/node_modules/rwt-kanji/rwt-kanji.css';
-	static htmlText = null;
-	static cssText  = null;
 	
 	constructor() {
 		super();
 				
+		// guardrails
+		this.instance = Static.elementInstance++;
+		this.isComponentLoaded = false;
+
 		// child elements
 		this.mainTitle = null;
 		this.sideTitle = null;
@@ -29,9 +38,6 @@ export default class RwtKanji extends HTMLElement {
 		this.imageText = null;
 		this.image = null;
 		
-		// properties
-		this.instance = RwtKanji.elementInstance++;
-
 		Object.seal(this);
 	}
 
@@ -52,6 +58,7 @@ export default class RwtKanji extends HTMLElement {
 			
 			this.identifyChildren();
 			this.registerEventListeners();
+			this.sendComponentLoaded();
 		}
 		catch (err) {
 			console.log(err.message);
@@ -72,24 +79,24 @@ export default class RwtKanji extends HTMLElement {
 	// and resolve the promise with a DocumentFragment.
 	getHtmlFragment() {
 		return new Promise(async (resolve, reject) => {
-			var htmlTemplateReady = `RwtKanji-html-template-ready`;
+			var htmlTemplateReady = `${Static.componentName}-html-template-ready`;
 			
 			document.addEventListener(htmlTemplateReady, () => {
 				var template = document.createElement('template');
-				template.innerHTML = RwtKanji.htmlText;
+				template.innerHTML = Static.htmlText;
 				resolve(template.content);
 			});
 			
 			if (this.instance == 1) {
-				var response = await fetch(RwtKanji.htmlURL, {cache: "no-cache", referrerPolicy: 'no-referrer'});
+				var response = await fetch(Static.htmlURL, {cache: "no-cache", referrerPolicy: 'no-referrer'});
 				if (response.status != 200 && response.status != 304) {
-					reject(new Error(`Request for ${RwtKanji.htmlURL} returned with ${response.status}`));
+					reject(new Error(`Request for ${Static.htmlURL} returned with ${response.status}`));
 					return;
 				}
-				RwtKanji.htmlText = await response.text();
+				Static.htmlText = await response.text();
 				document.dispatchEvent(new Event(htmlTemplateReady));
 			}
-			else if (RwtKanji.htmlText != null) {
+			else if (Static.htmlText != null) {
 				document.dispatchEvent(new Event(htmlTemplateReady));
 			}
 		});
@@ -100,24 +107,24 @@ export default class RwtKanji extends HTMLElement {
 	// and resolve the promise with that element.
 	getCssStyleElement() {
 		return new Promise(async (resolve, reject) => {
-			var cssTextReady = `RwtKanji-css-text-ready`;
+			var cssTextReady = `${Static.componentName}-css-text-ready`;
 
 			document.addEventListener(cssTextReady, () => {
 				var styleElement = document.createElement('style');
-				styleElement.innerHTML = RwtKanji.cssText;
+				styleElement.innerHTML = Static.cssText;
 				resolve(styleElement);
 			});
 			
 			if (this.instance == 1) {
-				var response = await fetch(RwtKanji.cssURL, {cache: "no-cache", referrerPolicy: 'no-referrer'});
+				var response = await fetch(Static.cssURL, {cache: "no-cache", referrerPolicy: 'no-referrer'});
 				if (response.status != 200 && response.status != 304) {
-					reject(new Error(`Request for ${RwtKanji.cssURL} returned with ${response.status}`));
+					reject(new Error(`Request for ${Static.cssURL} returned with ${response.status}`));
 					return;
 				}
-				RwtKanji.cssText = await response.text();
+				Static.cssText = await response.text();
 				document.dispatchEvent(new Event(cssTextReady));
 			}
-			else if (RwtKanji.cssText != null) {
+			else if (Static.cssText != null) {
 				document.dispatchEvent(new Event(cssTextReady));
 			}
 		});
@@ -139,7 +146,22 @@ export default class RwtKanji extends HTMLElement {
 		this.imageBlock.addEventListener('mouseout', this.onMouseoutImage.bind(this));
 	}
 	
+	//^ Inform the document's custom element that it is ready for programmatic use 
+	sendComponentLoaded() {
+		this.isComponentLoaded = true;
+		this.dispatchEvent(new Event('component-loaded', {bubbles: true}));
+	}
 
+	//^ A Promise that resolves when the component is loaded
+	waitOnLoading() {
+		return new Promise((resolve) => {
+			if (this.isComponentLoaded == true)
+				resolve();
+			else
+				this.addEventListener('component-loaded', resolve);
+		});
+	}
+	
 	//-------------------------------------------------------------------------
 	// component events
 	//-------------------------------------------------------------------------
@@ -155,4 +177,4 @@ export default class RwtKanji extends HTMLElement {
 	}
 }
 
-window.customElements.define('rwt-kanji', RwtKanji);
+window.customElements.define(Static.componentName, RwtKanji);
