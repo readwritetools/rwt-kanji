@@ -164,6 +164,16 @@ rwt-kanji {
 }
 ```
 
+### Life-cycle events
+
+The component issues life-cycle events.
+
+
+<dl>
+	<dt><code>component-loaded</code></dt>
+	<dd>Sent when the component is fully loaded and ready to be used. As a convenience you can use the <code>waitOnLoading()</code> method which returns a promise that resolves when the <code>component-loaded</code> event is received. Call this asynchronously with <code>await</code>.</dd>
+</dl>
+
 ### License
 
 The <span>rwt-kanji</span> web component is licensed under the MIT License.
