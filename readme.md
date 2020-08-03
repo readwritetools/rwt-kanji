@@ -6,6 +6,8 @@
 
 
 
+
+
 <figure>
 	<img src='/img/components/kanji/rwt-kanji-embossed.png' width='100%' />
 	<figcaption></figcaption>
