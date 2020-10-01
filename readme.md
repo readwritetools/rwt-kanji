@@ -8,10 +8,14 @@
 
 
 
+
+
 <figure>
 	<img src='/img/components/kanji/rwt-kanji-embossed.png' width='100%' />
 	<figcaption></figcaption>
 </figure>
+
+##### Open Source W3C Web Component
 
 # “Kanji” Designer Card
 

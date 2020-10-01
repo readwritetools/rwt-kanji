@@ -32,6 +32,7 @@
 	--accent-background2: var(--nav-black);
 	--accent-background3: var(--medium-black);
 	--accent-background4: var(--gray);
+	--accent-background5: rgba(0,0,0,0.4);
 
 	/* custom element variables */
 	--font-basis: 1.0;	
@@ -180,6 +181,7 @@ div#image-block {
 	padding: calc(1rem * var(--font-basis)) calc(4rem * var(--font-basis));
 	text-align: center;
 	opacity: 0;
+	background-color: var(--accent-background5);
 }
 
 #image-text.show {
