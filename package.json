@@ -1,6 +1,6 @@
 {
   "name": "rwt-kanji",
-  "version": "1.0.12",
+  "version": "1.0.13",
   "description": "Designer card with horizontal title, vertically transformed subtitle, blockquoted text, and image with mouse-over explanation, a W3C standard Web Component",
   "author": "Read Write Tools",
   "license": "MIT",
