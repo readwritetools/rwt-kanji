@@ -167,6 +167,7 @@ rwt-kanji {
     --accent-background2: var(--nav-black);
     --accent-background3: var(--medium-black);
     --accent-background4: var(--gray);
+    --accent-background5: rgba(0,0,0,0.4);
 }
 ```
 
