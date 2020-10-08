@@ -15,7 +15,7 @@
 	<figcaption></figcaption>
 </figure>
 
-##### Open Source W3C Web Component
+##### Open Source DOM Component
 
 # “Kanji” Designer Card
 
@@ -29,12 +29,12 @@
 
 <table>
 	<tr><th>Abstract</th></tr>
-	<tr><td>The <span class=product>rwt-kanji</span> web component displays a designer card which has a horizontal title, a vertically transformed subtitle, text that is formatted as a blockquote, and an image with a mouse-over explanation.</td></tr>
+	<tr><td>The <span class=product>rwt-kanji</span> DOM component displays a designer card which has a horizontal title, a vertically transformed subtitle, text that is formatted as a blockquote, and an image with a mouse-over explanation.</td></tr>
 </table>
 
 ### Motivation
 
-The <span>rwt-kanji</span> web component is intended for use on web pages
+The <span>rwt-kanji</span> DOM component is intended for use on web pages
 where the reader's attention is only lightly engaged.
 
 Sometimes a reader is in <q>scan</q> mode, rather than comprehension mode.
@@ -48,9 +48,16 @@ information fades in, revealing itself on top of the image.
 This component takes its name from its original use case: describing the
 inspiration behind the logos used in the desktop apps of Read Write Tools.
 
+#### In the wild
+
+To see an example of this component in use, visit the <a href='https://readwritetools.com'>READ WRITE TOOLS</a>
+home page. It uses several instances of this component. To understand what's
+going on under the hood, use the browser's inspector to view the HTML source
+code and network activity, and follow along as you read this documentation.
+
 #### Prerequisites
 
-The <span>rwt-kanji</span> web component works in any browser that supports
+The <span>rwt-kanji</span> DOM component works in any browser that supports
 modern W3C standards. Templates are written using <span>BLUE</span><span>
 PHRASE</span> notation, which can be compiled into HTML using the free <a href='https://hub.readwritetools.com/desktop/rwview.blue'>Read Write View</a>
 desktop app. It has no other prerequisites. Distribution and installation are
@@ -75,14 +82,14 @@ on your development computer.
 npm init
 ```
 
-   * Download and install the web component using the command:
+   * Download and install the DOM component using the command:
 ```bash
 npm install rwt-kanji
 ```
 
 
-Important note: This web component uses Node.js and NPM and `package.json` as a
-convenient *distribution and installation* mechanism. The web component itself
+Important note: This DOM component uses Node.js and NPM and `package.json` as a
+convenient *distribution and installation* mechanism. The DOM component itself
 does not need them.
 
 #### Installation using Github
@@ -90,13 +97,13 @@ does not need them.
 If you are more comfortable using Github for installation, follow these steps:
 
    * Create a directory `node_modules` in the root of your web project.
-   * Clone the <span>rwt-kanji</span> web component into it using the command:
+   * Clone the <span>rwt-kanji</span> DOM component into it using the command:
 ```bash
 git clone https://github.com/readwritetools/rwt-kanji.git
 ```
 
 
-### Using the web component
+### Using the DOM component
 
 After installation, you need to add two things to your HTML page to make use of
 it.
@@ -181,9 +188,22 @@ The component issues life-cycle events.
 	<dd>Sent when the component is fully loaded and ready to be used. As a convenience you can use the <code>waitOnLoading()</code> method which returns a promise that resolves when the <code>component-loaded</code> event is received. Call this asynchronously with <code>await</code>.</dd>
 </dl>
 
+---
+
+### Reference
+
+
+<table>
+	<tr><td><img src='/img/read-write-hub.png' alt='DOM components logo' width=40 /></td>	<td>Documentation</td> 		<td><a href='https://hub.readwritetools.com/components/kanji.blue'>READ WRITE HUB</a></td></tr>
+	<tr><td><img src='/img/git.png' alt='git logo' width=40 /></td>	<td>Source code</td> 			<td><a href='https://github.com/readwritetools/rwt-kanji'>github</a></td></tr>
+	<tr><td><img src='/img/dom-components.png' alt='DOM components logo' width=40 /></td>	<td>Component catalog</td> 	<td><a href='https://domcomponents.com/kanji.blue'>DOM COMPONENTS</a></td></tr>
+	<tr><td><img src='/img/npm.png' alt='npm logo' width=40 /></td>	<td>Package installation</td> <td><a href='https://www.npmjs.com/package/rwt-kanji'>npm</a></td></tr>
+	<tr><td><img src='/img/read-write-stack.png' alt='Read Write Stack logo' width=40 /></td>	<td>Publication venue</td>	<td><a href='https://readwritestack.com/components/kanji.blue'>READ WRITE STACK</a></td></tr>
+</table>
+
 ### License
 
-The <span>rwt-kanji</span> web component is licensed under the MIT License.
+The <span>rwt-kanji</span> DOM component is licensed under the MIT License.
 
 <img src='/img/blue-seal-mit.png' width=80 align=right />
 
@@ -194,13 +214,4 @@ The <span>rwt-kanji</span> web component is licensed under the MIT License.
 	<p>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</p>
 	<p>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
 </details>
-
-### Availability
-
-
-<table>
-	<tr><td>Source code</td> 			<td><a href='https://github.com/readwritetools/rwt-kanji'>github</a></td></tr>
-	<tr><td>Package installation</td> <td><a href='https://www.npmjs.com/package/rwt-kanji'>NPM</a></td></tr>
-	<tr><td>Documentation</td> 		<td><a href='https://hub.readwritetools.com/components/kanji.blue'>Read Write Hub</a></td></tr>
-</table>
 

@@ -1,7 +1,7 @@
 {
   "name": "rwt-kanji",
   "version": "1.0.14",
-  "description": "Designer card with horizontal title, vertically transformed subtitle, blockquoted text, and image with mouse-over explanation, a W3C standard Web Component",
+  "description": "Designer card with horizontal & vertical titles, image, and mouse-over text, a standards-based DOM Component",
   "author": "Read Write Tools",
   "license": "MIT",
   "module": "rwt-kanji.js",
