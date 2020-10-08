@@ -1,6 +1,6 @@
 {
   "name": "rwt-kanji",
-  "version": "1.0.14",
+  "version": "1.0.15",
   "description": "Designer card with horizontal & vertical titles, image, and mouse-over text, a standards-based DOM Component",
   "author": "Read Write Tools",
   "license": "MIT",
